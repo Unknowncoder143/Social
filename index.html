@@ -3,33 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mark Zuckerberg's Profile</title>
-
-    <!-- Webfinger Metadata -->
-    <link rel="webfinger" href="/.well-known/webfinger" type="application/json">
-
-    <!-- JSON Metadata -->
-    <script type="application/json" id="metadata">
-    {
-        "profiles": {
-            "mastodon": "https://mastodon.social/@zuck",
-            "threads": "https://threads.net/zuck"
+    <title>Mastodon Instances</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-    }
-    </script>
-
-    <!-- Link to your social profiles -->
-    <meta property="og:url" content="https://yourdomain.com">
-    <meta property="og:title" content="Mark Zuckerberg's Profile">
-    <meta property="og:description" content="Profile of Mark Zuckerberg, CEO of Meta Platforms.">
-    <meta property="og:image" content="https://yourdomain.com/profile-image.jpg">
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        main {
+            padding: 1rem;
+        }
+        #instances-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .instance {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Mark Zuckerberg's Profile</h1>
-    <p>Check out Mark Zuckerberg's profiles:</p>
-    <ul>
-        <li><a href="https://mastodon.social/@zuck">Mastodon</a></li>
-        <li><a href="https://threads.net/zuck">Threads</a></li>
-    </ul>
+    <header>
+        <h1>Mastodon Instances</h1>
+    </header>
+    <main>
+        <div id="instances-list">
+            <p>Loading instances...</p>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const instancesList = document.getElementById('instances-list');
+
+            // Mock API data
+            const mockData = [
+                { title: 'Instance A', description: 'A great instance for general discussion.', url: 'https://instance-a.example.com' },
+                { title: 'Instance B', description: 'Focuses on technology and development.', url: 'https://instance-b.example.com' },
+                { title: 'Instance C', description: 'Community for creative minds and art.', url: 'https://instance-c.example.com' }
+            ];
+
+            // Simulate network delay
+            setTimeout(() => {
+                instancesList.innerHTML = ''; // Clear the loading text
+
+                mockData.forEach(instance => {
+                    const instanceDiv = document.createElement('div');
+                    instanceDiv.className = 'instance';
+                    instanceDiv.innerHTML = `
+                        <h2>${instance.title}</h2>
+                        <p>${instance.description}</p>
+                        <a href="${instance.url}" target="_blank">${instance.url}</a>
+                    `;
+                    instancesList.appendChild(instanceDiv);
+                });
+            }, 1000); // 1 second delay for demo purposes
+        });
+    </script>
 </body>
 </html>
