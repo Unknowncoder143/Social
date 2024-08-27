@@ -1,24 +1,8 @@
 {
-  "mastodon": {
-    "subject": "acct:zuck@mastodon.social",
-    "aliases": ["https://mastodon.social/@zuck"],
-    "links": [
-      {
+    "subject": "acct:justin@mastodon.jgarr.net",
+    "links": [{
         "rel": "self",
         "type": "application/activity+json",
-        "href": "https://mastodon.social/users/zuck"
-      }
-    ]
-  },
-  "threads": {
-    "subject": "acct:zuck@threads.net",
-    "aliases": ["https://threads.net/@zuck"],
-    "links": [
-      {
-        "rel": "self",
-        "type": "application/activity+json",
-        "href": "https://threads.net/users/zuck"
-      }
-    ]
-  }
+        "href": "https://mastodon.jgarr.net/justin"
+    }]
 }
